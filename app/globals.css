@@ -3,7 +3,14 @@
 :root {
   --background: #F9FAFB;
   --foreground: #1F2937;
-  --buttonbackground: #3B82F6;
+  --primary-color: #3B82F6;
+  --secondary-color: #10B981;
+  --danger-color: #EF4444;
+  --warning-color: #F59E0B;
+  --text-secondary: #6B7280;
+  --border-color: #E5E7EB;
+  --button-padding: 8px 16px;
+  --border-radius: 10000px;
 }
 
 @theme inline {
@@ -17,10 +24,28 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  padding: 0px 32px;
 }
 
 @layer components {
   .mainButton{
-    background-color: var(--buttonbackground);
+    background-color: var(--primary-color);
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    color: var(--background);
+    cursor: pointer;
+  }
+
+  .mainButton:hover{
+    background-color: #2563EB;
+  }
+
+  .mainButton:active{
+    background-color: #1E40AF;
+  }
+
+  .mainButton:focus{
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
   }
 }
