@@ -11,6 +11,7 @@
   --border-color: #E5E7EB;
   --button-padding: 8px 16px;
   --border-radius: 10000px;
+  --text-heading-size: 32px;
 }
 
 @theme inline {
@@ -28,6 +29,13 @@ body {
 }
 
 @layer components {
+  .heading{
+    font-size: var(--text-heading-size);
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+
   .mainButton{
     background-color: var(--primary-color);
     padding: var(--button-padding);
@@ -47,5 +55,12 @@ body {
   .mainButton:focus{
     outline: 2px solid #3B82F6;
     outline-offset: 2px;
+  }
+
+  .buttonLogout{
+    background-color: var(--danger-color);
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
+    cursor: pointer;
   }
 }
