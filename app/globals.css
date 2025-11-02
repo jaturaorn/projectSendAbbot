@@ -12,6 +12,7 @@
   --button-padding: 8px 16px;
   --border-radius: 10000px;
   --text-heading-size: 32px;
+  --text-subheading-size: 20px;
 }
 
 @theme inline {
@@ -35,6 +36,11 @@ body {
     color: var(--foreground);
   }
 
+  .subHeading{
+    font-size: var(--text-subheading-size);
+    font-weight: 600;
+    color: var(--foreground);;
+  }
 
   .mainButton{
     background-color: var(--primary-color);
@@ -62,5 +68,32 @@ body {
     padding: var(--button-padding);
     border-radius: var(--border-radius);
     cursor: pointer;
+  }
+
+  .input {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  padding: var(--button-padding);
+  outline: none;
+  font-size: 14px;
+  flex: 1;
+  /* transition: border-color 0.3s ease; */
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+}
+
+  .buttonReset{
+    background-color: var(--warning-color);
+    color: var(--background) ;
+    padding: var(--button-padding);
+    border-radius: var(--border-radius);
   }
 }

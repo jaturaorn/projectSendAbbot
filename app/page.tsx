@@ -1,12 +1,14 @@
 
+import Card from "./Components/Card";
+import Search from "./Components/Search";
 import MainLayout from "./MainLayout";
 
 export default function Home() {
   return (
     <MainLayout>
-      <div>
-      <button className="mainButton">testButton</button>
-      </div>
+      <h1 className="heading">Blog Management Dashboard</h1>
+      <Search />
+      <Card />
       </MainLayout>
   );
 }
