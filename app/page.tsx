@@ -8,11 +8,21 @@ import Card from "./Components/Card";
 import Search from "./Components/Search";
 import MainLayout from "./MainLayout";
 import { Blog } from "./types/blog";
+import { useGlobalContext } from "./State/Global";
 
 export default function Home() {
   const [blogs, setBlogs] = useState(blogsData as Blog[]);
   const [filterCategory, setFilterCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [author, setAuthor] = useState("");
+  const [statuses, setStatuses] = useState("");
+  const [createdDate, setCreatedDate] = useState("");
+  const [updatedDate, setUpdatedDate] = useState("");
+
+  const { setOpenmodal } = useGlobalContext()!;
 
   const filteredBlogs = blogs.filter((blogs) => {
     const matchCategory =
@@ -22,8 +32,27 @@ export default function Home() {
       .includes(searchQuery.toLowerCase());
     return matchCategory && matchSearch;
   });
+
+  const handleAddNewBlog = (newBlog: Blog) => {
+    const blogWithId = {
+      ...newBlog,
+      id: Math.max(...blogs.map((b) => b.id)) + 1,
+    };
+    setBlogs([...blogs, blogWithId]);
+    setOpenmodal("");
+  };
   return (
-    <MainLayout>
+    <MainLayout
+      handleAddNewBlog={handleAddNewBlog}
+      title={title}
+      setTitle={setTitle}
+      description={description}
+      setDescription={setDescription}
+      author={author}
+      setAuthor={setAuthor}
+      status={statuses}
+      setStatuses={setStatuses}
+    >
       <h1 className="heading">Blog Management Dashboard</h1>
       <Search
         onSearch={setSearchQuery}

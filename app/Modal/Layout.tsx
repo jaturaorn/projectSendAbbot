@@ -20,7 +20,7 @@ const Layout = ({ children }: Props) => {
       >
         <div
           className="flex  h-full w-full  transform flex-col  items-center overflow-hidden rounded-xl
-        border-2 border-[#E5E7EB] bg-[#F9FAFB] shadow-lg"
+        p-5 border-2 border-[#E5E7EB] bg-[#F9FAFB] shadow-lg"
         >
           {children}
         </div>
