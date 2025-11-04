@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import Layout from "./Layout";
-import Close from "../Components/SVGS/Close";
 import { Blog } from "../types/blog";
+import Close from "../SVGS/Close";
 
 const ModalForm = ({
-  setStatus,
+  onCloseModal,
   handleAddNewBlog,
   title,
   setTitle,
@@ -15,7 +15,7 @@ const ModalForm = ({
   status,
   setStatuses,
 }: {
-  setStatus: Dispatch<SetStateAction<string>>;
+  onCloseModal: Dispatch<SetStateAction<string>>;
   handleAddNewBlog: (newBlog: Blog) => void;
   title: string;
   setTitle: Dispatch<SetStateAction<string>>;
@@ -31,7 +31,7 @@ const ModalForm = ({
       <div className="flex flex-col gap-5 w-full">
         <div className="w-full flex justify-between">
           <h3 className="text-2xl font-bold">Add new Blog</h3>
-          <button className="" onClick={() => setStatus("")}>
+          <button className="" onClick={() => onCloseModal("")}>
             <Close width={24} height={24} className="" />
           </button>
         </div>
@@ -78,15 +78,15 @@ const ModalForm = ({
             </label>
           </div>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full">
           <button
-            className="buttonLogout text-white"
-            onClick={() => setStatus("")}
+            className="buttonLogout text-white w-full"
+            onClick={() => onCloseModal("")}
           >
             Cancel
           </button>
           <button
-            className="mainButton"
+            className="mainButton w-full"
             onClick={() => {
               if (!title || !description || !author || !status) {
                 alert("Please fill in all information.");

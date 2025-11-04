@@ -10,4 +10,6 @@ export interface Blog {
 
 export interface CardProps {
   blog: Blog;
+  onDelete: (blogid: number) => void;
+  onEdit: (blog: Blog) => void;
 }

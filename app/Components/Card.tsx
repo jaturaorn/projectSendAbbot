@@ -1,7 +1,7 @@
 import { Pencil, Trash2 } from "lucide-react";
 import { CardProps } from "../types/blog";
 
-const Card = ({ blog }: CardProps) => {
+const Card = ({ blog, onDelete, onEdit }: CardProps) => {
   return (
     <div className="shadow-md rounded-lg bg-[#F3F4F6] p-4 flex flex-col gap-3">
       <div className="w-full flex justify-between ">
@@ -16,10 +16,16 @@ const Card = ({ blog }: CardProps) => {
       <div className="flex gap-2 items-center justify-between">
         <h4 className="text-lg">Updated: {blog.updatedDate}</h4>
         <div className="flex gap-2">
-          <button className="borber border-[#E5E7EB] px-4 py-2">
+          <button
+            className="border border-[#E5E7EB] px-4 py-2 rounded-full bg-white"
+            onClick={() => onEdit(blog)}
+          >
             <Pencil color="#3B82F6" />
           </button>
-          <button className="borber border-[#E5E7EB] px-4 py-2">
+          <button
+            className="border border-[#E5E7EB] px-4 py-2 rounded-full bg-white"
+            onClick={() => onDelete(blog.id)}
+          >
             <Trash2 color="#EF4444" />
           </button>
         </div>

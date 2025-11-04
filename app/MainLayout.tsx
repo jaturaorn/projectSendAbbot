@@ -14,6 +14,12 @@ const MainLayout = ({
   setAuthor,
   status,
   setStatuses,
+  onSaveEdit,
+  blog,
+  createdDate,
+  setCreatedDate,
+  updatedDate,
+  setUpdatedDate,
 }: Readonly<{
   children: React.ReactNode;
   handleAddNewBlog: (newBlog: Blog) => void;
@@ -25,11 +31,18 @@ const MainLayout = ({
   setAuthor: Dispatch<SetStateAction<string>>;
   status: string;
   setStatuses: Dispatch<SetStateAction<string>>;
+  onSaveEdit: (updatedBlog: Blog) => void;
+  blog: Blog | null;
+  createdDate: string;
+  setCreatedDate: Dispatch<SetStateAction<string>>;
+  updatedDate: string;
+  setUpdatedDate: Dispatch<SetStateAction<string>>;
 }>) => {
   return (
     <div className=" h-screen flex flex-col gap-5 items-center max-w-[1440px] w-full px-8">
       <ModalController
         handleAddNewBlog={handleAddNewBlog}
+        onSaveEdit={onSaveEdit}
         title={title}
         setTitle={setTitle}
         description={description}
@@ -38,6 +51,11 @@ const MainLayout = ({
         setAuthor={setAuthor}
         status={status}
         setStatuses={setStatuses}
+        blog={blog}
+        createdDate={createdDate}
+        setCreatedDate={setCreatedDate}
+        updatedDate={updatedDate}
+        setUpdatedDate={setUpdatedDate}
       />
       <Navbar />
       {children}
