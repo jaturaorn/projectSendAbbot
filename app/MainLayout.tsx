@@ -1,5 +1,5 @@
 import Navbar from "./Components/Navbar";
-
+import ModalController from "./Modal/ModalController";
 
 const MainLayout = ({
   children,
@@ -8,10 +8,11 @@ const MainLayout = ({
 }>) => {
   return (
     <div className=" h-screen flex flex-col gap-5 items-center max-w-[1440px] w-full px-8">
-    <Navbar />
-    {children}
+      <ModalController />
+      <Navbar />
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
